@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraGuard - Emergency SOS</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='warning_style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="app-container sos-mode">
+        <header class="search-header">
+            <div class="header-pill">
+                <i data-lucide="chevron-left" class="back-btn" onclick="history.back()"></i>
+                <h2>Emergency Broadcast</h2>
+
+                
+                <div style="width: 24px;">
+                <i data-lucide="alert-octagon" class="back-btn" onclick="history.back()"></i>
+                </div>
+            </div>
+        </header>
+
+        <main class="sos-content">
+            <div class="sos-warning-box">
+                <i data-lucide="alert-octagon" class="sos-icon-large"></i>
+                <h1>Send Emergency Warning</h1>
+                <p>Pressing the button below will send a landslide warning to <strong>everyone</strong> in the #43011 sector.</p>
+            </div>
+
+            <div class="sos-button-container">
+                <button id="sos-trigger" class="sos-btn">
+                    <span class="btn-text">SEND SOS</span>
+                    <div class="btn-progress"></div>
+                </button>
+                <p class="instruction">Hold for 3 seconds to broadcast</p>
+            </div>
+
+            <section id="status-panel" class="status-panel hidden">
+                <div class="status-item">
+                    <i data-lucide="check-circle" class="success-icon"></i>
+                    <span>Message encrypted</span>
+                </div>
+                <div class="status-item">
+                    <div class="spinner"></div>
+                    <span>Broadcasting to 1,240 devices...</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // SOS Button Logic
+        const sosBtn = document.getElementById('sos-trigger');
+        const statusPanel = document.getElementById('status-panel');
+        let timer;
+
+        sosBtn.addEventListener('mousedown', startTimer);
+        sosBtn.addEventListener('touchstart', startTimer);
+        sosBtn.addEventListener('mouseup', cancelTimer);
+        sosBtn.addEventListener('touchend', cancelTimer);
+
+        function startTimer() {
+            sosBtn.classList.add('active');
+            timer = setTimeout(() => {
+                sosBtn.classList.remove('active');
+                sosBtn.classList.add('sent');
+                sosBtn.innerHTML = "<span>BROADCASTED</span>";
+                statusPanel.classList.remove('hidden');
+            }, 3000); // 3 seconds hold
+        }
+
+        function cancelTimer() {
+            if (sosBtn.classList.contains('active')) {
+                clearTimeout(timer);
+                sosBtn.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

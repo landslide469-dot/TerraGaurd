@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraGuard - Search Result</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='search_style.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="search-header">
+            
+                <form action="{{url_for('search')}}" method="post" class="search-input-wrapper">
+                    <button type="button" class="pin-icon">
+                <i data-lucide="map-pin" onclick="alert('Finding Location')"></i>
+                </button>
+                <input type="text" list="search" placeholder="Search..." name="search" autocomplete="off">
+    <datalist id="search">
+        <!-- Thiruvananthapuram District -->
+    <option value="Thiruvananthapuram">
+    <option value="Nedumangadu">
+    <option value="Chirayinkeezhu">
+    <option value="Kattakada">
+    <option value="Neyyattinkara">
+    <option value="Varkala">
+
+    <!-- Kollam District -->
+    <option value="Kollam">
+    <option value="Kunnathoor">
+    <option value="Karunagappally">
+    <option value="Kottarakkara">
+    <option value="Pathanapuram">
+    <option value="Punalur">
+
+    <!-- Pathanamthitta District -->
+    <option value="Adoor">
+    <option value="Konni">
+    <option value="Kozhencherry">
+    <option value="Mallappally">
+    <option value="Ranni">
+    <option value="Thiruvalla">
+    <option value="Pathanamthitta">
+
+    <!-- Alappuzha District -->
+    <option value="Ambalappuzha">
+    <option value="Chengannur">
+    <option value="Karthikappally">
+    <option value="Mavelikkara">
+    <option value="Cherthala">
+    <option value="Kuttanad">
+
+    <!-- Kottayam District -->
+    <option value="Changanacherry">
+    <option value="Kanjirappally">
+    <option value="Kottayam">
+    <option value="Meenachil">
+    <option value="Vaikom">
+
+    <!-- Idukki District -->
+    <option value="Devikulam">
+    <option value="Idukki">
+    <option value="Kattappana">
+    <option value="Thodupuzha">
+    <option value="Peerumedu">
+
+    <!-- Ernakulam District -->
+    <option value="Aluva">
+    <option value="Kochi">
+    <option value="Kanayannur">
+    <option value="Kunnathunad">
+    <option value="Muvattupuzha">
+    <option value="Paravur">
+    <option value="Kothamangalam">
+
+    <!-- Thrissur District -->
+    <option value="Chalakudy">
+    <option value="Chavakkad">
+    <option value="Kunnamkulam">
+    <option value="Mukundapuram">
+    <option value="Talappilly">
+    <option value="Thrissur">
+    <option value="Kodungallur">
+
+    <!-- Palakkad District -->
+    <option value="Alathur">
+    <option value="Chittur">
+    <option value="Ottapalam">
+    <option value="Palakkad">
+    <option value="Mannarkkad">
+    <option value="Shornur">
+    <option value="Attappadi">
+
+    <!-- Malappuram District -->
+    <option value="Ernad">
+    <option value="Tirur">
+    <option value="Perinthalmanna">
+    <option value="Nilambur">
+    <option value="Ponnani">
+    <option value="Malappuram">
+    <option value="Kondotty">
+
+    <!-- Kozhikode District -->
+    <option value="Kozhikode">
+    <option value="Vatakara">
+    <option value="Thamarassery">
+    <option value="Kunnamangalam">
+    <option value="Nadapuram">
+
+    <!-- Wayanad District -->
+    <option value="Vythiri">
+    <option value="Mananthavady">
+    <option value="Sulthan Bathery">
+    <option value="Noolpuzha">
+
+    <!-- Kannur District -->
+    <option value="Kannur">
+    <option value="Thalassery">
+    <option value="Taliparamba">
+    <option value="Iritty">
+    <option value="Payyannur">
+
+    <!-- Kasaragod District -->
+    <option value="Kasaragod">
+    <option value="Hosdurg">
+    <option value="Manjeshwar">
+    <option value="Vellarikundu">
+    </datalist>
+                <button type="submit" class="search-btn-icon">
+                <i data-lucide="search"></i>
+                </button>
+                </form>
+            
+        </header>
+{% if state %} 
+        <main class="data-content">
+            <h1 class="area-code">&nbsp;# {{area_code}}</h1>
+
+            <section class="info-group">
+                <h3><i data-lucide="chevron-right"></i> Information</h3>
+                <div class="info-table">
+
+                 
+   
+    <div class="info-row">
+    <div class="label"><i data-lucide="droplet"></i> State</div>
+    <div class="value">{{ state }}</div>
+</div>
+
+
+
+<div class="info-row">
+    <div class="label"><i data-lucide="droplet"></i> District</div>
+    <div class="value">{{ district }}</div>
+</div>
+
+<div class="info-row">
+    <div class="label"><i data-lucide="droplet"></i> Sub-District</div>
+    <div class="value">{{ sub_district }}</div>
+</div>
+
+<div class="info-row">
+    <div class="label"><i data-lucide="cloud-rain"></i> Rainfall (last 24h)</div>
+    <div class="value">{{ rainfall_24}}mm</div>
+</div>
+
+<div class="info-row">
+    <div class="label"><i data-lucide="cloud-rain"></i> Rainfall ( 3 days )</div>
+    <div class="value">{{ rainfall_3days }}mm</div>
+</div>
+
+<div class="info-row">
+    <div class="label"><i data-lucide="leaf"></i> Soil Moisture</div>
+    <div class="value">{{ mois}} m<sup>3</sup></div>
+</div>
+
+<div class="info-row">
+    <div class="label"><i data-lucide="leaf"></i> Humidity</div>
+    <div class="value">{{ humi}}%</div>
+</div>
+
+
+<div class="info-row">
+    <div class="label"><i data-lucide="navigation"></i> Elevation</div>
+    <div class="value">{{ elevation }}m</div>
+</div>
+
+
+
+    
+            </section>
+
+            <section class="info-group danger-text">
+                <h3><i data-lucide="chevron-right"></i> Risk for disaster</h3>
+
+
+        <p class="risk-box">{{risk}}</p>
+            </section>
+
+            <section class="info-group">
+                <h3><i data-lucide="chevron-right"></i> Risk Rate</h3>
+                <div class="risk-meter">
+                    <span class="risk-value">{{proba}} %</span>
+                    <p class="risk-note"></p>
+                </div>
+            </section>
+        </main>
+
+       
+
+        <footer class="action-footer">
+            <button class="share-btn">
+                <span>Share</span>
+                <i data-lucide="send"></i>
+            </button>
+        </footer>
+
+         {% else %}
+
+            <h1 class="search_for_result">{{error}}</h1>
+
+            
+    {% endif %} 
+
+    </div>
+
+    
+   
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

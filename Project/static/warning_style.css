@@ -1,0 +1,184 @@
+/* --- CSS VARIABLES (Pastel Material You Palette) --- */
+:root {
+    --bg-color: #F7F9FF;           /* Very light blue-grey */
+    --surface-color: #FFFFFF;      /* White cards */
+    --primary-pastel: #D3E4FF;     /* Soft Blue */
+    --secondary-pastel:#181F66;   /* Soft Grey */
+    --accent-pastel: #F9DEDC;      /* Soft Coral/Pink for alerts */
+    --text-main:#181F66;          /* Dark charcoal */
+    --text-muted: #44474E;
+    --radius-lg: 28px;             /* Modern rounded corners */
+    --radius-md: 16px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+
+
+/* --- Emergency SOS Styles --- */
+
+a {
+    text-decoration: none;   /* Remove underline */
+    color: inherit;          /* Use parent text color instead of default blue */
+}
+
+a:visited {
+    color: inherit;          /* Keep the same color after visiting */
+}
+
+a:hover {
+    text-decoration: none;   /* Remove underline on hover */
+    color: inherit;          /* Optional: keep same color */
+}
+
+a:active {
+    text-decoration: none;   /* Remove underline when active/clicked */
+    color: inherit;          /* Optional */
+}
+
+.app-container{
+    background-color: var(--bg-color);
+    padding:10px;
+    font-family: 'Roboto', sans-serif;
+    
+
+}
+
+
+.header-pill {
+    background: var(--surface-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    
+}
+
+
+.header-pill h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+
+
+.sos-mode {
+    background-color: #FFFBFF;
+}
+
+.sos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-grow: 1;
+}
+
+.sos-warning-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.sos-icon-large {
+    width: 80px;
+    height: 80px;
+    color: #B3261E;
+    margin-bottom: 20px;
+}
+
+.sos-warning-box h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1C1B1F;
+}
+
+.sos-warning-box p {
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* The SOS Button */
+.sos-button-container {
+    text-align: center;
+}
+
+.sos-btn {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: none;
+    background: #F9DEDC; /* Pastel Red */
+    color: #B3261E;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(179, 38, 30, 0.2);
+    transition: transform 0.2s;
+}
+
+.sos-btn.active {
+    transform: scale(0.9);
+}
+
+.sos-btn.sent {
+    background: #B3261E;
+    color: white;
+}
+
+.btn-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: rgba(179, 38, 30, 0.1);
+    transition: height 3s linear;
+}
+
+.sos-btn.active .btn-progress {
+    height: 100%;
+}
+
+.instruction {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Status Panel */
+.status-panel {
+    
+    background:none;
+    padding: 20px;
+    border-radius: var(--radius-lg);
+}
+
+.hidden { display: none; }
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.success-icon { color: #2E7D32; }
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid var(--secondary-pastel);
+    border-top: 3px solid #0061A4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

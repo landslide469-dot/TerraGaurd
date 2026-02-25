@@ -1,0 +1,137 @@
+/* --- CSS VARIABLES (Pastel Material You Palette) --- */
+:root {
+    --bg-color: #F7F9FF;           /* Very light blue-grey */
+    --surface-color: #FFFFFF;      /* White cards */
+    --primary-pastel: #D3E4FF;     /* Soft Blue */
+    --secondary-pastel:#181F66;   /* Soft Grey */
+    --accent-pastel: #F9DEDC;      /* Soft Coral/Pink for alerts */
+    --text-main:#181F66;          /* Dark charcoal */
+    --text-muted: #44474E;
+    --radius-lg: 28px;             /* Modern rounded corners */
+    --radius-md: 16px;
+    --shadow: 0 0px 12px #AEAEAE4A;
+}
+
+
+
+/* --- Additional Styles for Contact Screen --- */
+
+
+a {
+    text-decoration: none;   /* Remove underline */
+    color: inherit;          /* Use parent text color instead of default blue */
+}
+
+a:visited {
+    color: inherit;          /* Keep the same color after visiting */
+}
+
+a:hover {
+    text-decoration: none;   /* Remove underline on hover */
+    color: inherit;          /* Optional: keep same color */
+}
+
+a:active {
+    text-decoration: none;   /* Remove underline when active/clicked */
+    color: inherit;          /* Optional */
+}
+
+.app-container{
+    padding:10px;
+    background-color: var(--bg-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.search-header{
+    width:100%
+}
+
+
+.header-pill {
+    background: var(--surface-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    
+}
+
+.header-pill h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.back-btn {
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.phone-icon{
+    padding-right:5px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.contact-group h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-card {
+    background: var(--surface-color);
+    border-radius: var(--radius-md);
+    padding: 5px 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 15px;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--secondary-pastel);
+}
+
+.contact-row:last-child {
+    border-bottom: none;
+}
+
+.contact-row span {
+    font-weight: 400;
+    color: var(--text-main);
+}
+
+.contact-row a {
+    color: #0061A4; /* Material Primary Blue for links */
+    text-decoration: none;
+    font-weight: 500;
+    background: var(--primary-pastel);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.contact-row a:active {
+    background: #c2d7f7;
+}
+
+/* Responsive adjustment for wider screens */
+@media (min-width: 768px) {
+    .contact-card {
+        padding: 10px 30px;
+    }
+}
