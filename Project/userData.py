@@ -1,6 +1,0 @@
-import sqlite3
-
-
-DB_NAME = "TerraGuard.db"
-
-
